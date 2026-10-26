@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos - The Office Papelaria</title>
+    <link rel="stylesheet" href="/CSS/estilos.pt.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <a href="/" class="logo"><img src="/IMG/Landing/logo.png" alt="Logo"></a>
+        <nav><a href="/">Início</a> | <a href="/catalogo">Produtos</a></nav>
+        <div>
+            <a href="/carrinho">Carrinho (<%= carrinhoQtd %>)</a>
+        </div>
+    </header>
+
+    <main class="catalogo-container">
+        <h1>Nosso Catálogo de Produtos</h1>
+        <div class="grid-produtos">
+            <% produtos.forEach(prod=> { %>
+                <div class="card-produto">
+                    <img src="<%= prod.imagem_url || '/IMG/Landing/placeholder.png' %>" alt="<%= prod.nome %>">
+                    <h3>
+                        <%= prod.nome %>
+                    </h3>
+                    <p class="preco">
+                        <%= moeda(prod.preco) %>
+                    </p>
+                    <p class="status-ativo">
+                        <%= prod.estoque %> disponíveis
+                    </p>
+                    <form action="/carrinho/adicionar" method="POST">
+                        <input type="hidden" name="produtoId" value="<%= prod.id %>">
+                        <button type="submit" class="btn-buy">Comprar</button>
+                    </form>
+                </div>
+                <% }) %>
+        </div>
+    </main>
+</body>
+
+</html>

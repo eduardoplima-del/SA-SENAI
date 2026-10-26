@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Painel de Controle - The Office Papelaria</title>
+    <link rel="stylesheet" href="/CSS/estilos.pt.css">
+</head>
+
+<body>
+    <header class="admin-header">
+        <h1>Painel de Controle e Vendas</h1>
+        <div>
+            <span>Admin: <%= usuario.nome %></span> | <a href="/logout">Sair</a>
+        </div>
+    </header>
+
+    <main class="dashboard-grid">
+        <div class="card-metric">
+            <h3>Total de Produtos</h3>
+            <p class="number">
+                <%= totalProdutos %>
+            </p>
+        </div>
+        <div class="card-metric">
+            <h3>Total de Pedidos</h3>
+            <p class="number">
+                <%= totalPedidos %>
+            </p>
+        </div>
+        <div class="card-metric">
+            <h3>Vendas Concluídas</h3>
+            <p class="number">
+                <%= moeda(totalVendas) %>
+            </p>
+        </div>
+
+        <section class="admin-actions">
+            <a href="/produtos" class="btn-admin">Gerenciar Estoque/Produtos</a>
+            <a href="/usuarios" class="btn-admin">Gerenciar Usuários</a>
+            <a href="/pedidos" class="btn-admin">Gerenciar Pedidos</a>
+        </section>
+    </main>
+</body>
+
+</html>

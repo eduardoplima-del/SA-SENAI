@@ -1,0 +1,1024 @@
+
+*{ 
+
+    margin:0; 
+
+    padding:0; 
+
+    box-sizing:border-box; 
+
+} 
+
+ 
+
+html{ 
+
+    scroll-behavior:smooth; 
+
+} 
+
+ 
+
+body{ 
+
+    font-family:'Poppins',sans-serif; 
+
+    background:#f7efe7; 
+
+    color:#1f1f1f; 
+
+} 
+
+ 
+
+img{ 
+
+    max-width:100%; 
+
+    display:block; 
+
+} 
+
+ 
+
+a{ 
+
+    text-decoration:none; 
+
+    color:inherit; 
+
+} 
+
+ 
+
+ul{ 
+
+    list-style:none; 
+
+} 
+
+ 
+
+.container{ 
+
+    width:1200px; 
+
+    max-width:90%; 
+
+    margin:auto; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   HEADER 
+
+======================================= */ 
+
+ 
+
+header{ 
+
+    width:100%; 
+
+    height:85px; 
+
+    background:#f8f2ea; 
+
+    display:flex; 
+
+    align-items:center; 
+
+    box-shadow:0 2px 8px rgba(0,0,0,.05); 
+
+} 
+
+ 
+
+header .container{ 
+
+    display:flex; 
+
+    justify-content:space-between; 
+
+    align-items:center; 
+
+} 
+
+ 
+
+.logo img{ 
+
+    width:120px; 
+
+} 
+
+ 
+
+nav ul{ 
+
+    display:flex; 
+
+    gap:45px; 
+
+} 
+
+ 
+
+nav a{ 
+
+    font-size:15px; 
+
+    font-weight:500; 
+
+    transition:.3s; 
+
+} 
+
+ 
+
+nav a:hover{ 
+
+    color:#dca73a; 
+
+} 
+
+ 
+
+.header-icons{ 
+
+    display:flex; 
+
+    gap:22px; 
+
+} 
+
+ 
+
+.header-icons i{ 
+
+    font-size:22px; 
+
+    cursor:pointer; 
+
+    transition:.3s; 
+
+} 
+
+ 
+
+.header-icons i:hover{ 
+
+    color:#dca73a; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   HERO 
+
+======================================= */ 
+
+ 
+
+.hero{ 
+
+    background:#efe4d7; 
+
+    padding:55px 0; 
+
+} 
+
+ 
+
+.hero-content{ 
+
+    display:flex; 
+
+    justify-content:space-between; 
+
+    align-items:center; 
+
+    gap:40px; 
+
+} 
+
+ 
+
+.hero-text{ 
+
+    width:46%; 
+
+} 
+
+ 
+
+.hero-text h1{ 
+
+    font-size:56px; 
+
+    line-height:1.05; 
+
+    margin-bottom:22px; 
+
+    font-weight:700; 
+
+} 
+
+ 
+
+.hero-text p{ 
+
+    width:90%; 
+
+    font-size:17px; 
+
+    color:#666; 
+
+    line-height:1.8; 
+
+    margin-bottom:40px; 
+
+} 
+
+ 
+
+.hero-image{ 
+
+    width:50%; 
+
+} 
+
+ 
+
+.hero-image img{ 
+
+    width:100%; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   BOTÃO 
+
+======================================= */ 
+
+ 
+
+.btn{ 
+
+    display:inline-flex; 
+
+    align-items:center; 
+
+    gap:18px; 
+
+    background:#efb73b; 
+
+    color:#111; 
+
+    padding:18px 45px; 
+
+    border-radius:40px; 
+
+    font-weight:600; 
+
+    transition:.35s; 
+
+} 
+
+ 
+
+.btn:hover{ 
+
+    transform:translateY(-3px); 
+
+    background:#e4aa28; 
+
+} 
+
+ 
+
+.btn i{ 
+
+    font-size:22px; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   BENEFÍCIOS 
+
+======================================= */ 
+
+ 
+
+.benefits{ 
+
+    background:#faf5ef; 
+
+    padding:35px 0; 
+
+} 
+
+ 
+
+.benefits .container{ 
+
+    display:flex; 
+
+    justify-content:space-between; 
+
+    align-items:center; 
+
+} 
+
+ 
+
+.benefit{ 
+
+    flex:1; 
+
+    display:flex; 
+
+    align-items:center; 
+
+    gap:18px; 
+
+} 
+
+ 
+
+.benefit i{ 
+
+    font-size:48px; 
+
+    color:#c8c2bb; 
+
+} 
+
+ 
+
+.benefit h3{ 
+
+    font-size:18px; 
+
+    margin-bottom:4px; 
+
+} 
+
+ 
+
+.benefit p{ 
+
+    color:#777; 
+
+    font-size:14px; 
+
+} 
+
+ 
+
+.divider{ 
+
+    width:1px; 
+
+    height:70px; 
+
+    background:#ddd2c7; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   SOBRE 
+
+======================================= */ 
+
+ 
+
+.about{ 
+
+    background:#efe4d7; 
+
+    padding:70px 0; 
+
+} 
+
+ 
+
+.about-content{ 
+
+    display:flex; 
+
+    justify-content:space-between; 
+
+    align-items:center; 
+
+    gap:60px; 
+
+} 
+
+ 
+
+.about-text{ 
+
+    width:48%; 
+
+} 
+
+ 
+
+.about-text h2{ 
+
+    font-size:48px; 
+
+    margin-bottom:35px; 
+
+} 
+
+ 
+
+.about-text p{ 
+
+    color:#555; 
+
+    font-size:17px; 
+
+    line-height:1.9; 
+
+    margin-bottom:20px; 
+
+    text-align:justify; 
+
+} 
+
+ 
+
+.about-image{ 
+
+    width:40%; 
+
+    display:flex; 
+
+    justify-content:center; 
+
+} 
+
+ 
+
+.about-image img{ 
+
+    width:360px; 
+
+} 
+
+/* ======================================= 
+
+   LOGIN 
+
+======================================= */ 
+
+ 
+
+.login-section{ 
+
+    background:#efe4d7; 
+
+    padding:30px 0 80px; 
+
+    text-align:center; 
+
+} 
+
+ 
+
+.login-btn{ 
+
+    padding:18px 60px; 
+
+    font-size:18px; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   FOOTER 
+
+======================================= */ 
+
+ 
+
+footer{ 
+
+    background:#ffffff; 
+
+    padding:30px 0; 
+
+    border-top:1px solid #e5ddd5; 
+
+} 
+
+ 
+
+footer .container{ 
+
+    display:flex; 
+
+    flex-direction:column; 
+
+    align-items:center; 
+
+    justify-content:center; 
+
+    gap:15px; 
+
+} 
+
+ 
+
+.footer-logo img{ 
+
+    width:90px; 
+
+} 
+
+ 
+
+footer p{ 
+
+    color:#777; 
+
+    font-size:14px; 
+
+    text-align:center; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   ANIMAÇÕES 
+
+======================================= */ 
+
+ 
+
+.hero-image img, 
+
+.about-image img{ 
+
+    transition:.4s ease; 
+
+} 
+
+ 
+
+.hero-image img:hover, 
+
+.about-image img:hover{ 
+
+    transform:scale(1.03); 
+
+} 
+
+ 
+
+.benefit{ 
+
+    transition:.3s ease; 
+
+} 
+
+ 
+
+.benefit:hover{ 
+
+    transform:translateY(-6px); 
+
+} 
+
+ 
+
+nav a{ 
+
+    position:relative; 
+
+} 
+
+ 
+
+nav a::after{ 
+
+    content:""; 
+
+    position:absolute; 
+
+    left:0; 
+
+    bottom:-6px; 
+
+    width:0; 
+
+    height:2px; 
+
+    background:#efb73b; 
+
+    transition:.3s; 
+
+} 
+
+ 
+
+nav a:hover::after{ 
+
+    width:100%; 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   RESPONSIVO 
+
+======================================= */ 
+
+ 
+
+@media(max-width:992px){ 
+
+ 
+
+.container{ 
+
+    max-width:92%; 
+
+} 
+
+ 
+
+header{ 
+
+    height:auto; 
+
+    padding:20px 0; 
+
+} 
+
+ 
+
+header .container{ 
+
+    flex-direction:column; 
+
+    gap:20px; 
+
+} 
+
+ 
+
+nav ul{ 
+
+    gap:25px; 
+
+} 
+
+ 
+
+.hero-content{ 
+
+    flex-direction:column; 
+
+    text-align:center; 
+
+} 
+
+ 
+
+.hero-text, 
+
+.hero-image{ 
+
+    width:100%; 
+
+} 
+
+ 
+
+.hero-text p{ 
+
+    width:100%; 
+
+} 
+
+ 
+
+.hero-text h1{ 
+
+    font-size:42px; 
+
+} 
+
+ 
+
+.about-content{ 
+
+    flex-direction:column; 
+
+} 
+
+ 
+
+.about-text, 
+
+.about-image{ 
+
+    width:100%; 
+
+} 
+
+ 
+
+.about-text{ 
+
+    text-align:center; 
+
+} 
+
+ 
+
+.about-text p{ 
+
+    text-align:center; 
+
+} 
+
+ 
+
+.benefits .container{ 
+
+    flex-direction:column; 
+
+    gap:35px; 
+
+} 
+
+ 
+
+.divider{ 
+
+    display:none; 
+
+} 
+
+ 
+
+.benefit{ 
+
+    justify-content:center; 
+
+} 
+
+ 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   CELULAR 
+
+======================================= */ 
+
+ 
+
+@media(max-width:768px){ 
+
+ 
+
+.logo img{ 
+
+    width:95px; 
+
+} 
+
+ 
+
+nav ul{ 
+
+    flex-direction:column; 
+
+    align-items:center; 
+
+    gap:18px; 
+
+} 
+
+ 
+
+.header-icons{ 
+
+    gap:18px; 
+
+} 
+
+ 
+
+.hero{ 
+
+    padding:40px 0; 
+
+} 
+
+ 
+
+.hero-text h1{ 
+
+    font-size:34px; 
+
+    line-height:1.2; 
+
+} 
+
+ 
+
+.hero-text p{ 
+
+    font-size:15px; 
+
+} 
+
+ 
+
+.btn{ 
+
+    padding:16px 32px; 
+
+    font-size:15px; 
+
+} 
+
+ 
+
+.about{ 
+
+    padding:50px 0; 
+
+} 
+
+ 
+
+.about-text h2{ 
+
+    font-size:34px; 
+
+} 
+
+ 
+
+.about-text p{ 
+
+    font-size:15px; 
+
+} 
+
+ 
+
+.about-image img{ 
+
+    width:270px; 
+
+} 
+
+ 
+
+.benefit{ 
+
+    flex-direction:column; 
+
+    text-align:center; 
+
+} 
+
+ 
+
+.benefit i{ 
+
+    font-size:42px; 
+
+} 
+
+ 
+
+footer{ 
+
+    padding:25px 0; 
+
+} 
+
+ 
+
+footer p{ 
+
+    font-size:13px; 
+
+} 
+
+ 
+
+} 
+
+ 
+
+/* ======================================= 
+
+   TELAS MUITO GRANDES 
+
+======================================= */ 
+
+ 
+
+@media(min-width:1600px){ 
+
+ 
+
+.container{ 
+
+    width:1400px; 
+
+} 
+
+ 
+
+.hero-text h1{ 
+
+    font-size:68px; 
+
+} 
+
+ 
+
+.hero-text p{ 
+
+    font-size:20px; 
+
+} 
+
+ 
+
+.about-text h2{ 
+
+    font-size:58px; 
+
+} 
+
+ 
+
+.about-text p{ 
+
+    font-size:19px; 
+
+} 
+
+ 
+
+.logo img{ 
+
+    width:150px; 
+
+} 
+
+ 
+
+.hero-image img{ 
+
+    width:95%; 
+
+} 
+
+ 
+
+.about-image img{ 
+
+    width:430px; 
+
+} 
+
+ 
+
+}

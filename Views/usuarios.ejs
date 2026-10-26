@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários Cadastrados</title>
+    <link rel="stylesheet" href="/CSS/estilos.pt.css">
+</head>
+
+<body>
+    <a href="/dashboard">&larr; Voltar ao Dashboard</a>
+    <h2>Usuários Cadastrados</h2>
+
+    <div class="user-list">
+        <% usuarios.forEach(u=> { %>
+            <div class="user-row">
+                <span class="user-name">👤 <%= u.nome %></span>
+                <span class="user-email">
+                    <%= u.email %>
+                </span>
+                <span class="badge <%= u.situacao === 1 ? 'ativa' : 'inativa' %>">
+                    <%= u.situacao===1 ? 'Ativo' : 'Inativo' %>
+                </span>
+            </div>
+            <% }) %>
+    </div>
+</body>
+
+</html>

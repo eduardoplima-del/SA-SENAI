@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Office Papelaria - Início</title>
+    <link rel="stylesheet" href="/CSS/estilos.pt.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <img src="/IMG/Landing/logo.png" alt="The Office Papelaria">
+        </div>
+        <nav class="nav-links">
+            <a href="/">Início</a>
+            <a href="#sobre">Sobre nós</a>
+            <a href="/catalogo">Produtos</a>
+        </nav>
+        <div class="user-actions">
+            <% if (usuario) { %>
+                <span>Olá, <%= usuario.nome %></span>
+                <% if (usuario.tipo==='admin' ) { %>
+                    <a href="/dashboard" class="btn">Painel</a>
+                    <% } %>
+                        <a href="/logout" class="btn">Sair</a>
+                        <% } else { %>
+                            <a href="/login" class="btn">Login</a>
+                            <% } %>
+                                <a href="/carrinho" class="cart-icon">🛒 (<%= carrinhoQtd %>)</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="banner">
+            <div class="banner-text">
+                <h1>Mais que papelaria, é o seu espaço de ideias.</h1>
+                <p>Aqui encontra tudo para deixar o seu dia a dia mais organizado e produtivo.</p>
+                <a href="/catalogo" class="btn-primary">Ver produtos &rarr;</a>
+            </div>
+            <div class="banner-img">
+                <img src="/IMG/Landing/banner-caderno.png" alt="Caderno The Office">
+            </div>
+        </section>
+
+        <section class="produtos-destaque">
+            <h2>Destaques do Catálogo</h2>
+            <div class="grid-produtos">
+                <% if (produtosAtivos && produtosAtivos.length> 0) { %>
+                    <% produtosAtivos.forEach(p=> { %>
+                        <div class="card-produto">
+                            <img src="<%= p.imagem_url || '/IMG/Landing/placeholder.png' %>" alt="<%= p.nome %>">
+                            <h3>
+                                <%= p.nome %>
+                            </h3>
+                            <p class="preco">
+                                <%= moeda(p.preco) %>
+                            </p>
+                            <p class="estoque">
+                                <%= p.estoque %> disponíveis
+                            </p>
+                            <form action="/carrinho/adicionar" method="POST">
+                                <input type="hidden" name="produtoId" value="<%= p.id %>">
+                                <button type="submit" class="btn-add">Adicionar ao Carrinho</button>
+                            </form>
+                        </div>
+                        <% }) %>
+                            <% } else { %>
+                                <p>Nenhum produto cadastrado no momento.</p>
+                                <% } %>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
