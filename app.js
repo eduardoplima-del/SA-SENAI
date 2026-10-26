@@ -215,7 +215,7 @@ app.use((req, res) => {
 });
 
 // Inicialização do Servidor Express
-const PORTA = 3001;
+const PORTA = 3001; //porta 3001
 app.listen(PORTA, () => {
     console.log(`Servidor "The Office Papelaria" rodando em: http://localhost:${PORTA}`);
 });
