@@ -1,0 +1,284 @@
+/* ==========================================================================
+   PAINEL DE CONTROLO DE VENDAS E DASHBOARD
+   ========================================================================== */
+
+body {
+    background-color: #ebe5d8;
+    font-family: 'Poppins', sans-serif;
+    color: #2b2b2b;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard-container {
+    max-width: 1280px;
+    margin: 2rem auto 4rem auto;
+    padding: 0 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   1. TOPO DA PÁGINA / BOAS-VINDAS ADMIN
+   -------------------------------------------------------------------------- */
+.dashboard-header {
+    background-color: #f7f3e8;
+    border-radius: 20px;
+    padding: 1.8rem 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.dashboard-header .welcome-text h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 0.3rem 0;
+}
+
+.dashboard-header .welcome-text p {
+    font-size: 0.88rem;
+    color: #666666;
+    margin: 0;
+}
+
+.admin-badge-status {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background-color: #ffffff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.admin-badge-status .status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #48bb78;
+    border-radius: 50%;
+}
+
+.admin-badge-status span {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #333333;
+}
+
+/* --------------------------------------------------------------------------
+   2. CARDS DE MÉTRICAS DE VENDAS (RESUMO FINANCEIRO)
+   -------------------------------------------------------------------------- */
+.kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.kpi-card {
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 1.4rem 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.kpi-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.4rem;
+}
+
+.kpi-value {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.2rem;
+}
+
+.kpi-subtext {
+    font-size: 0.72rem;
+    color: #999999;
+}
+
+.kpi-icon {
+    font-size: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kpi-icon.vendas { color: #f1bf53; }
+.kpi-icon.pedidos { color: #4299e1; }
+.kpi-icon.produtos { color: #48bb78; }
+.kpi-icon.alerta { color: #e53e3e; }
+
+/* --------------------------------------------------------------------------
+   3. SEÇÃO PRINCIPAL (TABELA DE PEDIDOS RECENTES E MAIS VENDIDOS)
+   -------------------------------------------------------------------------- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 1.5rem 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.card-header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid #f2eee3;
+}
+
+.card-header-flex h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.card-header-flex a {
+    font-size: 0.82rem;
+    color: #f1bf53;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card-header-flex a:hover {
+    text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   4. TABELA DE PEDIDOS DE VENDAS
+   -------------------------------------------------------------------------- */
+.vendas-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.vendas-table th {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888888;
+    text-transform: uppercase;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid #f0ece1;
+}
+
+.vendas-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #f9f7f2;
+    font-size: 0.88rem;
+    vertical-align: middle;
+}
+
+.vendas-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges de Status do Pedido */
+.order-status {
+    display: inline-block;
+    padding: 0.35rem 0.85rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.order-status.pago {
+    background-color: #c6f6d5;
+    color: #22543d;
+}
+
+.order-status.pendente {
+    background-color: #fefcbf;
+    color: #744210;
+}
+
+.order-status.cancelado {
+    background-color: #fed7d7;
+    color: #742a2a;
+}
+
+.order-status.enviado {
+    background-color: #bee3f8;
+    color: #2b6cb0;
+}
+
+/* --------------------------------------------------------------------------
+   5. LISTA DE PRODUTOS MAIS VENDIDOS E ESTOQUE BAIXO (SIDEBAR)
+   -------------------------------------------------------------------------- */
+.side-lists {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mini-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.mini-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed #f2eee3;
+}
+
+.mini-item:last-child {
+    border-bottom: none;
+}
+
+.mini-item-info h4 {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin: 0 0 0.2rem 0;
+}
+
+.mini-item-info p {
+    font-size: 0.75rem;
+    color: #888888;
+    margin: 0;
+}
+
+.mini-item-count {
+    font-size: 0.85rem;
+    font-weight: 700;
+    background-color: #f7f3e8;
+    padding: 0.3rem 0.7rem;
+    border-radius: 12px;
+    color: #1a1a1a;
+}
+
+.mini-item-count.alert {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}

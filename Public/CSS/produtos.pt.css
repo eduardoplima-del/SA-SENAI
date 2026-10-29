@@ -1,0 +1,200 @@
+/* ==========================================================================
+   ESTILOS DA PÁGINA DE PRODUTOS / CATÁLOGO
+   ========================================================================== */
+
+.catalogo-main {
+    min-height: 70vh;
+    padding: 2.5rem 0 4rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Títulos de Categorias */
+.categoria-secao {
+    margin-bottom: 3rem;
+}
+
+.categoria-titulo {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-bottom: 1.5rem;
+}
+
+/* Grid de Produtos */
+.produtos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Card do Produto */
+.produto-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #eae5d9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.produto-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.produto-img {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.produto-img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.produto-info h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-bottom: 0.3rem;
+}
+
+.produto-info .preco {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2b2b2b;
+    margin-bottom: 0.2rem;
+}
+
+.produto-info .estoque {
+    font-size: 0.85rem;
+    color: #666666;
+    margin-bottom: 0.5rem;
+}
+
+/* Status do Produto */
+.status-badge {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.status-badge.ativo {
+    color: #38a169;
+}
+
+.status-badge.inativo {
+    color: #e53e3e;
+}
+
+/* Botão Comprar / Adicionar */
+.btn-comprar {
+    width: 100%;
+    background-color: #f1bf53;
+    color: #2b2b2b;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-comprar:hover {
+    background-color: #e0ae42;
+}
+
+/* Auxiliares do Header */
+.icon-logout {
+    font-size: 0.9rem;
+    margin-left: 5px;
+}
+
+.cart-wrapper {
+    position: relative;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    background: #f1bf53;
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 5px;
+}
+
+/* ==========================================================================
+   ESTADO VAZIO / SEM PRODUTOS CADASTRADOS
+   ========================================================================== */
+.empty-state-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 1rem;
+    width: 100%;
+}
+
+.empty-state-card {
+    background-color: #f7f4ed;
+    border: 1px solid #e5dec9;
+    border-radius: 20px;
+    padding: 3.5rem 2.5rem;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+}
+
+.empty-state-card .empty-icon {
+    font-size: 3.5rem;
+    color: #f1bf53;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+.empty-state-card h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #2b2b2b;
+    margin-bottom: 0.8rem;
+}
+
+.empty-state-card p {
+    font-size: 0.95rem;
+    color: #666666;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.btn-voltar-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: #f1bf53;
+    color: #2b2b2b;
+    padding: 0.85rem 1.8rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.btn-voltar-home:hover {
+    background-color: #e0ae42;
+    transform: translateY(-2px);
+}

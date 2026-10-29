@@ -3,44 +3,223 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Painel de Controle - The Office Papelaria</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel de Controle de Vendas - The Office Papelaria</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="/CSS/estilos.pt.css">
+    <link rel="stylesheet" href="/CSS/dashboard.pt.css">
 </head>
 
 <body>
-    <header class="admin-header">
-        <h1>Painel de Controle e Vendas</h1>
-        <div>
-            <span>Admin: <%= usuario.nome %></span> | <a href="/logout">Sair</a>
+
+    <!-- ================================= -->
+    <!-- HEADER / NAVBAR -->
+    <!-- ================================= -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/IMG/Landing/logo.png" alt="The Office Papelaria">
+                </a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="/">Início</a></li>
+                    <li><a href="/catalogo">Produtos</a></li>
+                    <li><a href="/produtos">Gerenciar Estoque</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-icons">
+                <div class="admin-badge-status">
+                    <span class="status-dot"></span>
+                    <span>Modo gerenciador ativo</span>
+                </div>
+
+                <a href="/logout" title="Sair" style="font-size: 1rem; margin-left: 10px;">
+                    <i class="bi bi-box-arrow-right"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <main class="dashboard-grid">
-        <div class="card-metric">
-            <h3>Total de Produtos</h3>
-            <p class="number">
-                <%= totalProdutos %>
-            </p>
-        </div>
-        <div class="card-metric">
-            <h3>Total de Pedidos</h3>
-            <p class="number">
-                <%= totalPedidos %>
-            </p>
-        </div>
-        <div class="card-metric">
-            <h3>Vendas Concluídas</h3>
-            <p class="number">
-                <%= moeda(totalVendas) %>
-            </p>
+    <!-- ================================= -->
+    <!-- CONTEÚDO PRINCIPAL DO DASHBOARD -->
+    <!-- ================================= -->
+    <main class="dashboard-container">
+
+        <!-- Header do Painel -->
+        <div class="dashboard-header">
+            <div class="welcome-text">
+                <h1>Controle de Vendas e Desempenho</h1>
+                <p>"Mais que papelaria, é o seu espaço de ideias." — Acompanhe o fluxo de vendas em tempo real.</p>
+            </div>
+            <a href="/produtos" class="btn-novo-produto" style="text-decoration: none;">
+                <i class="bi bi-box-seam"></i> Gerenciar Produtos
+            </a>
         </div>
 
-        <section class="admin-actions">
-            <a href="/produtos" class="btn-admin">Gerenciar Estoque/Produtos</a>
-            <a href="/usuarios" class="btn-admin">Gerenciar Usuários</a>
-            <a href="/pedidos" class="btn-admin">Gerenciar Pedidos</a>
-        </section>
+        <!-- Cards de Métricas (KPIs) -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div>
+                    <div class="kpi-title">Total em Vendas</div>
+                    <div class="kpi-value"><%= moeda(totalVendas) %></div>
+                    <div class="kpi-subtext">Soma de pedidos pagos</div>
+                </div>
+                <div class="kpi-icon vendas">
+                    <i class="bi bi-cash-stack"></i>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div>
+                    <div class="kpi-title">Total de Pedidos</div>
+                    <div class="kpi-value"><%= totalPedidos %></div>
+                    <div class="kpi-subtext">Registrados no sistema</div>
+                </div>
+                <div class="kpi-icon pedidos">
+                    <i class="bi bi-bag-check-fill"></i>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div>
+                    <div class="kpi-title">Produtos Ativos</div>
+                    <div class="kpi-value"><%= totalProdutos %></div>
+                    <div class="kpi-subtext">Disponíveis na loja</div>
+                </div>
+                <div class="kpi-icon produtos">
+                    <i class="bi bi-box-seam-fill"></i>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div>
+                    <div class="kpi-title">Estoque Baixo</div>
+                    <div class="kpi-value"><%= estoqueBaixo.length %></div>
+                    <div class="kpi-subtext">Produtos com ≤ 5 un.</div>
+                </div>
+                <div class="kpi-icon alerta">
+                    <i class="bi bi-exclamation-triangle-fill"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid Principal: Tabela de Status e Listas de Apoio -->
+        <div class="dashboard-grid">
+
+            <!-- Tabela de Resumo dos Pedidos por Status -->
+            <div class="dashboard-card">
+                <div class="card-header-flex">
+                    <h2>Resumo de Pedidos por Status</h2>
+                    <a href="/pedidos">Ver todos os pedidos &rarr;</a>
+                </div>
+
+                <% if (pedidosStatus && pedidosStatus.length > 0) { %>
+                    <table class="vendas-table">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Quantidade de Pedidos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% pedidosStatus.forEach(item => { %>
+                                <tr>
+                                    <td>
+                                        <span class="order-status <%= item.status.toLowerCase() %>">
+                                            <%= item.status %>
+                                        </span>
+                                    </td>
+                                    <td><strong><%= item.total %></strong> pedido(s)</td>
+                                </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p style="color: #777; font-size: 0.9rem; margin-top: 1rem;">Nenhum pedido registrado até o momento.</p>
+                <% } %>
+            </div>
+
+            <!-- Coluna Lateral: Mais Vendidos e Estoque Baixo -->
+            <div class="side-lists">
+
+                <!-- Card: Mais Vendidos -->
+                <div class="dashboard-card">
+                    <div class="card-header-flex">
+                        <h2>Mais Vendidos</h2>
+                    </div>
+                    <div class="mini-item-list">
+                        <% if (maisVendidos && maisVendidos.length > 0) { %>
+                            <% maisVendidos.forEach(item => { %>
+                                <div class="mini-item">
+                                    <div class="mini-item-info">
+                                        <h4><%= item.nome %></h4>
+                                        <p>Itens vendidos</p>
+                                    </div>
+                                    <span class="mini-item-count"><%= item.total %> un.</span>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <p style="color: #888; font-size: 0.85rem;">Nenhuma venda finalizada ainda.</p>
+                        <% } %>
+                    </div>
+                </div>
+
+                <!-- Card: Alerta de Estoque Baixo -->
+                <div class="dashboard-card">
+                    <div class="card-header-flex">
+                        <h2>Alerta de Estoque</h2>
+                        <a href="/produtos">Ajustar</a>
+                    </div>
+                    <div class="mini-item-list">
+                        <% if (estoqueBaixo && estoqueBaixo.length > 0) { %>
+                            <% estoqueBaixo.forEach(item => { %>
+                                <div class="mini-item">
+                                    <div class="mini-item-info">
+                                        <h4><%= item.nome %></h4>
+                                        <p>Restam poucas unidades</p>
+                                    </div>
+                                    <span class="mini-item-count alert"><%= item.estoque %> un.</span>
+                                </div>
+                            <% }) %>
+                        <% } else { %>
+                            <p style="color: #888; font-size: 0.85rem;">Todos os produtos estão com estoque adequado.</p>
+                        <% } %>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </main>
+
+    <!-- ================================= -->
+    <!-- FOOTER -->
+    <!-- ================================= -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <img src="/IMG/Landing/logo.png" alt="The Office Papelaria">
+            </div>
+            <p>© 2026 The Office Papelaria. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
 </body>
 
 </html>
